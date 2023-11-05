@@ -1,8 +1,13 @@
 <template>
-    <div class="calculator">
-        <div class="result">{{ currentVal }}</div>
-        <div class="buttons">
-            <div v-for="btn in calcButton" :key="btn" @click="action(btn)">{{ btn }}</div>
+    <div class="bg-gray-950 flex items-center justify-center h-screen">
+        <div class="p-4 bg-gray-950 border border-red-600 rounded-lg shadow-lg flex flex-col">
+            <div class="p-4 text-3xl text-white mb-4">{{ display }}</div>
+            <div class="grid grid-cols-4 gap-4">
+                <div v-for="btn in calcButton" :key="btn" @click="action(btn)"
+                    class="py-3 px-4 text-2xl text-red-600 rounded-full cursor-pointer duration-200">
+                    {{ btn }}
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -59,45 +64,18 @@ export default {
             }
         }
     },
+    computed: {
+        display() {
+            if (this.currentVal) {
+                return this.currentVal;
+            } else {
+                if (this.operators) {
+                    return this.previousVal;
+                } else {
+                    return '0';
+                }
+            }
+        },
+    }
 }
 </script>
-
-<style scoped>
-.calculator {
-  max-width: 300px;
-  margin: 0 auto;
-  background-color: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.result {
-  font-size: 24px;
-  text-align: right;
-  margin-bottom: 10px;
-  color: #000;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-}
-
-.buttons > div {
-  background-color: #ececec;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  color: #000;
-}
-
-.buttons > div:hover {
-  background-color: #ddd;
-}
-</style>
