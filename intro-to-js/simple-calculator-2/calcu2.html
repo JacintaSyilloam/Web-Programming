@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Calculator</title>
+</head>
+
+<body>
+    <input type="text" id="display" readonly><br>
+
+    <input type="button" value="1" onclick="display('1')">
+    <input type="button" value="2" onclick="display('2')">
+    <input type="button" value="3" onclick="display('3')"><br>
+    <input type="button" value="4" onclick="display('4')">
+    <input type="button" value="5" onclick="display('5')">
+    <input type="button" value="6" onclick="display('6')"><br>
+    <input type="button" value="7" onclick="display('7')">
+    <input type="button" value="8" onclick="display('8')">
+    <input type="button" value="9" onclick="display('9')"><br>
+    <input type="button" value="0" onclick="display('0')">
+    <input type="button" value="C" onclick="clearDisplay()">
+    <input type="button" value="=" onclick="calculate()">
+    <br><br>
+
+
+    <input type="button" value="+" onclick="setOperator('+')">
+    <input type="button" value="-" onclick="setOperator('-')">
+    <input type="button" value="*" onclick="setOperator('*')">
+    <input type="button" value="/" onclick="setOperator('/')">
+
+    
+    <script src="calcu2.js"></script>
+</body>
+
+</html>
